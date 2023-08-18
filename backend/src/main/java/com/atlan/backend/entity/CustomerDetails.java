@@ -3,10 +3,13 @@ package com.atlan.backend.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import javax.annotation.processing.Generated;
+
 @Data
 public class CustomerDetails {
     @Id
-    private int id;
+    @Generated("uuid")
+    private String id;
     private String email;
     private String name;
     private double monthlyIncome;
