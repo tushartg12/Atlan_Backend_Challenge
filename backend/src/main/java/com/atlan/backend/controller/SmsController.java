@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SmsController {
     @Autowired
     SmsService smsService;
-
+    //Route for sending SMS
     @PostMapping("/sendSMS")
     public void addCustomer(@RequestBody MessageTemplate messageTemplate){
         smsService.sendMessage(messageTemplate);

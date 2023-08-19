@@ -16,6 +16,7 @@ public class ValidateService {
         ValidationResponse validationResponse=new ValidationResponse();
         Matcher matcher=pattern.matcher(customerDetails.getEmail());
         char[] chars = customerDetails.getName().toCharArray();
+        //Validation of name - No digits are allowed
         for(char c : chars){
             if(Character.isDigit(c)){
                 validationResponse.setNameValidity(false);
@@ -25,8 +26,11 @@ public class ValidateService {
                 validationResponse.setNameValidity(true);
             }
         }
+        //Validation of Income - Savings should not be greater tha income
         validationResponse.setIncomeValidity(!(customerDetails.getMonthlyIncome() < customerDetails.getMonthlySavings()));
+        //Validation of Mobile Number - starts with 6-9 and must be of 10 digits
         validationResponse.setMobileNumberValidity(customerDetails.getMobileNumber().matches(MOBILE_REGEX));
+        //Validation of Email - should be of correct email syntax
         validationResponse.setEmailValidity(matcher.matches());
         return validationResponse;
     }

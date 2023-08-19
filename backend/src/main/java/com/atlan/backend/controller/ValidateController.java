@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ValidateController {
     @Autowired
     ValidateService validateService;
+    //Route for validating customer Details
     @PostMapping("/validateCustomer")
     public ResponseEntity<ValidationResponse> validateCustomer(@RequestBody CustomerDetails customerDetails){
         return new ResponseEntity<>(validateService.validateCustomer(customerDetails),HttpStatus.OK);

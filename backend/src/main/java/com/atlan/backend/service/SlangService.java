@@ -15,6 +15,7 @@ public class SlangService {
     private static final String ENDPOINT = "http://api.whatsmate.net/v1/translation/translate";
 
     public String findSlang(String fromLang, String toLang, String text) throws Exception {
+        //Making the JSON string
         String jsonPayload = "{" +
                 "\"fromLang\":\"" +
                 fromLang +

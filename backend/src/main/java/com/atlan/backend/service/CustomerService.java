@@ -28,6 +28,7 @@ public class CustomerService {
             customerRepository.save(customerDetails);
             MessageTemplate messageTemplate=new MessageTemplate();
             messageTemplate.setMobileNumber("+91"+customerDetails.getMobileNumber());
+            //Creating message body
             messageTemplate.setMessgeBody(
                     "Your Unique ID is "+ customerDetails.getId()+"\n"+
                             "Your registered email is "+ customerDetails.getEmail()+"\n"+
@@ -42,5 +43,6 @@ public class CustomerService {
         else{
             return response;
         }
+        //If details are valid then return string otherwise return validity response
     }
 }

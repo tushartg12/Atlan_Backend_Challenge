@@ -78,6 +78,7 @@ public class GoogleSheetsService {
             throws GeneralSecurityException, IOException {
         Sheets service = getSheetService();
         SpreadsheetProperties spreadsheetProperties = new SpreadsheetProperties();
+        //The sheet name will be the date and time when it is created
         String sheetName = String.valueOf(new Date());
         spreadsheetProperties.setTitle(sheetName);
         SheetProperties sheetProperties = new SheetProperties();
@@ -87,6 +88,7 @@ public class GoogleSheetsService {
                 .setSheets(Collections.singletonList(sheet));
         Spreadsheet createdResponse = service.spreadsheets().create(spreadsheet).execute();
         SheetResponsePojo sheetResponsePojo = new SheetResponsePojo();
+        //Creating heading row
         List<Object> headingRow=new ArrayList<>();
         headingRow.add("id");
         headingRow.add("Email");
@@ -96,7 +98,9 @@ public class GoogleSheetsService {
         headingRow.add("Mobile Number");
         List<List<Object>> entries=new ArrayList<>();
         entries.add(headingRow);
+        //Fetching data from  DB
         List<CustomerDetails> customerDetails = customerRepository.findAll();
+        //Adding data in the Google sheet
         for (CustomerDetails customerDetail:
              customerDetails) {
             List<Object> entry=new ArrayList<>();

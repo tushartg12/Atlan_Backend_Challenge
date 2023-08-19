@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class SlangController {
     @Autowired
     SlangService slangService;
+    //Route for give slang words
     @PostMapping("/giveSlang")
     public ResponseEntity<String> findSlang(@RequestBody SlangRequest slangRequest) throws Exception {
         return new ResponseEntity<>(slangService.findSlang(slangRequest.getFromLang(), slangRequest.getToLang(), slangRequest.getText()), HttpStatus.OK);

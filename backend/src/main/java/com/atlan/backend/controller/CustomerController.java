@@ -14,10 +14,12 @@ import java.util.List;
 public class CustomerController {
     @Autowired
     CustomerService customerService;
+    //Route for fetch all customer details
     @GetMapping("/getAllCustomers")
     public ResponseEntity<List<CustomerDetails>> getAllCustomers(){
         return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
     }
+    //Route for add customer
     @PostMapping("/addCustomer")
     public ResponseEntity<Object> addCustomer(@RequestBody CustomerDetails customerDetails){
         Object response = customerService.addCustomer(customerDetails);
