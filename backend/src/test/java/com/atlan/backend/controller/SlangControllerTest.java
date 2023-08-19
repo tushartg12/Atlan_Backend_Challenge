@@ -1,6 +1,6 @@
 package com.atlan.backend.controller;
 
-import com.atlan.backend.TestUtils;
+import com.atlan.backend.utils.TestUtils;
 import com.atlan.backend.entity.SlangRequest;
 import com.atlan.backend.service.SlangService;
 import jdk.jfr.Description;

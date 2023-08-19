@@ -1,19 +1,15 @@
 package com.atlan.backend.controller;
 
-import com.atlan.backend.TestUtils;
+import com.atlan.backend.utils.TestUtils;
 import com.atlan.backend.entity.ValidationResponse;
 import com.atlan.backend.service.CustomerService;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 

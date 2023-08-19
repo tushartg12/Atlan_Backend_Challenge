@@ -1,6 +1,6 @@
 package com.atlan.backend.controller;
 
-import com.atlan.backend.TestUtils;
+import com.atlan.backend.utils.TestUtils;
 import com.atlan.backend.service.SmsService;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

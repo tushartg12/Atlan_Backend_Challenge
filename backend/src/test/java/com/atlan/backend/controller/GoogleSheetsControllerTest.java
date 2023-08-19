@@ -1,7 +1,6 @@
 package com.atlan.backend.controller;
 
-import com.atlan.backend.TestUtils;
-import com.atlan.backend.entity.SheetResponsePojo;
+import com.atlan.backend.utils.TestUtils;
 import com.atlan.backend.service.GoogleSheetsService;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
@@ -10,9 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;

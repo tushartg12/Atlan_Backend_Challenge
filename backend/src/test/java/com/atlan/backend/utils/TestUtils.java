@@ -1,4 +1,4 @@
-package com.atlan.backend;
+package com.atlan.backend.utils;
 
 import com.atlan.backend.entity.CustomerDetails;
 import com.atlan.backend.entity.MessageTemplate;

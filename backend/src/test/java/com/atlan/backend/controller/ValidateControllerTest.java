@@ -1,8 +1,9 @@
 package com.atlan.backend.controller;
 
-import com.atlan.backend.TestUtils;
+import com.atlan.backend.utils.TestUtils;
 import com.atlan.backend.entity.ValidationResponse;
 import com.atlan.backend.service.ValidateService;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -22,8 +23,10 @@ class ValidateControllerTest {
     @InjectMocks
     TestUtils testUtils;
     @Test
-    void validateCustomer() {
+    @Description("Happy Path")
+    void validateCustomer_Test() {
         when(validateService.validateCustomer(testUtils.getCustomerDetails())).thenReturn(new ValidationResponse());
         assertEquals(HttpStatus.OK,validateController.validateCustomer(testUtils.getCustomerDetails()).getStatusCode());
+        verify(validateService).validateCustomer(testUtils.getCustomerDetails());
     }
 }
