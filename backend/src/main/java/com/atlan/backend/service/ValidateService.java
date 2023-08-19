@@ -15,9 +15,19 @@ public class ValidateService {
     public ValidationResponse validateCustomer(CustomerDetails customerDetails) {
         ValidationResponse validationResponse=new ValidationResponse();
         Matcher matcher=pattern.matcher(customerDetails.getEmail());
+        char[] chars = customerDetails.getName().toCharArray();
+        for(char c : chars){
+            if(Character.isDigit(c)){
+                validationResponse.setNameValidity(false);
+                break;
+            }
+            else{
+                validationResponse.setNameValidity(true);
+            }
+        }
         validationResponse.setIncomeValidity(!(customerDetails.getMonthlyIncome() < customerDetails.getMonthlySavings()));
         validationResponse.setMobileNumberValidity(customerDetails.getMobileNumber().matches(MOBILE_REGEX));
-        validationResponse.setEmailValidity(matcher.matches());;
+        validationResponse.setEmailValidity(matcher.matches());
         return validationResponse;
     }
 }

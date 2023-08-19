@@ -1,5 +1,6 @@
 package com.atlan.backend.service;
 
+import com.atlan.backend.Credentials.SlangServiceCredentials;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -9,8 +10,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 @Service
 public class SlangService {
-    private static final String CLIENT_ID = "FREE_TRIAL_ACCOUNT";
-    private static final String CLIENT_SECRET = "PUBLIC_SECRET";
+    private static final String CLIENT_ID = SlangServiceCredentials.CLIENT_ID;
+    private static final String CLIENT_SECRET = SlangServiceCredentials.CLIENT_SECRET;
     private static final String ENDPOINT = "http://api.whatsmate.net/v1/translation/translate";
 
     public String findSlang(String fromLang, String toLang, String text) throws Exception {
@@ -25,7 +26,6 @@ public class SlangService {
                 text +
                 "\"" +
                 "}";
-
         URL url = new URL(ENDPOINT);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);

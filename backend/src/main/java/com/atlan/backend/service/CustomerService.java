@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -23,7 +24,7 @@ public class CustomerService {
 
     public Object addCustomer(CustomerDetails customerDetails) {
         ValidationResponse response=validateService.validateCustomer(customerDetails);
-        if(response.isEmailValidity()&&response.isIncomeValidity()&& response.isMobileNumberValidity()){
+        if(response.isEmailValidity()&&response.isIncomeValidity()&& response.isMobileNumberValidity()&&response.isNameValidity()){
             customerRepository.save(customerDetails);
             MessageTemplate messageTemplate=new MessageTemplate();
             messageTemplate.setMobileNumber("+91"+customerDetails.getMobileNumber());

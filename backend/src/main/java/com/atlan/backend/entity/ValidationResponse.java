@@ -7,4 +7,5 @@ public class ValidationResponse {
     private boolean emailValidity;
     private boolean incomeValidity;
     private boolean mobileNumberValidity;
+    private boolean nameValidity;
 }
