@@ -17,7 +17,7 @@ public class SmsController {
     SmsService smsService;
     //Route for sending SMS
     @PostMapping("/sendSMS")
-    public void addCustomer(@RequestBody MessageTemplate messageTemplate){
+    public void sendSMS(@RequestBody MessageTemplate messageTemplate){
         smsService.sendMessage(messageTemplate);
     }
 }
