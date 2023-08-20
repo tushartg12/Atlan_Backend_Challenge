@@ -27,7 +27,7 @@ public class CustomerService {
         if(response.isEmailValidity()&&response.isIncomeValidity()&& response.isMobileNumberValidity()&&response.isNameValidity()){
             customerRepository.save(customerDetails);
             MessageTemplate messageTemplate=new MessageTemplate();
-            messageTemplate.setMobileNumber("+91"+customerDetails.getMobileNumber());
+            messageTemplate.setMobileNumber(customerDetails.getMobileNumber());
             //Creating message body
             messageTemplate.setMessgeBody(
                     "Your Unique ID is "+ customerDetails.getId()+"\n"+

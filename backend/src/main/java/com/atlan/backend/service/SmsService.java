@@ -13,7 +13,7 @@ public class SmsService {
     public void sendMessage(MessageTemplate messageTemplate) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message.creator(
-                        new com.twilio.type.PhoneNumber(messageTemplate.getMobileNumber()),
+                        new com.twilio.type.PhoneNumber("+91"+messageTemplate.getMobileNumber()),
                         new com.twilio.type.PhoneNumber("+13345083467"),
                         messageTemplate.getMessgeBody())
                 .create();
