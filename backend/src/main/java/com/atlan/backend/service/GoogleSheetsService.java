@@ -33,7 +33,7 @@ public class GoogleSheetsService {
     CustomerRepository customerRepository;
     private static final String APPLICATION_NAME = "Atlan Backend Challenge";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
-    private static final String TOKENS_DIRECTORY_PATH = "tokens/path";
+    private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
     /**
      * Global instance of the scopes required by this quickstart. If modifying these
