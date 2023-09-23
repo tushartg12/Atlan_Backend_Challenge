@@ -14,7 +14,7 @@ public class SmsService {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message.creator(
                         new com.twilio.type.PhoneNumber("+91"+messageTemplate.getMobileNumber()),
-                        new com.twilio.type.PhoneNumber("+13345083467"),
+                        new com.twilio.type.PhoneNumber("+15178782949"),
                         messageTemplate.getMessgeBody())
                 .create();
     }
