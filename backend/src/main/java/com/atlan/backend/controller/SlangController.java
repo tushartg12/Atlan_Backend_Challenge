@@ -2,6 +2,7 @@ package com.atlan.backend.controller;
 
 import com.atlan.backend.entity.SlangRequest;
 import com.atlan.backend.service.SlangService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ public class SlangController {
     SlangService slangService;
     //Route for give slang words
     @PostMapping("/giveSlang")
-    public ResponseEntity<String> findSlang(@RequestBody SlangRequest slangRequest) throws Exception {
+    public ResponseEntity<String> findSlang(@RequestBody @Valid SlangRequest slangRequest) throws Exception {
         return new ResponseEntity<>(slangService.findSlang(slangRequest.getFromLang(), slangRequest.getToLang(), slangRequest.getText()), HttpStatus.OK);
     }
 }

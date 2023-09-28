@@ -4,6 +4,7 @@ import com.atlan.backend.entity.CustomerDetails;
 import com.atlan.backend.entity.SlangRequest;
 import com.atlan.backend.entity.ValidationResponse;
 import com.atlan.backend.service.ValidateService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ValidateController {
     ValidateService validateService;
     //Route for validating customer Details
     @PostMapping("/validateCustomer")
-    public ResponseEntity<ValidationResponse> validateCustomer(@RequestBody CustomerDetails customerDetails){
+    public ResponseEntity<ValidationResponse> validateCustomer(@RequestBody @Valid CustomerDetails customerDetails){
         return new ResponseEntity<>(validateService.validateCustomer(customerDetails),HttpStatus.OK);
     }
 }

@@ -4,6 +4,7 @@ import com.atlan.backend.entity.CustomerDetails;
 import com.atlan.backend.entity.MessageTemplate;
 import com.atlan.backend.entity.ValidationResponse;
 import com.atlan.backend.service.SmsService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class SmsController {
     SmsService smsService;
     //Route for sending SMS
     @PostMapping("/sendSMS")
-    public void sendSMS(@RequestBody MessageTemplate messageTemplate){
+    public void sendSMS(@RequestBody @Valid MessageTemplate messageTemplate){
         smsService.sendMessage(messageTemplate);
     }
 }
